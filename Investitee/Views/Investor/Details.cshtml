@@ -1,0 +1,65 @@
+﻿@model Investitee.Models.Investor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Investor</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FundSize)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FundSize)
+    </div>
+
+    @if (Model.Contacts.Count > 0)
+    {
+    <h4>Contact Details</h4>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Phone Number</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var con in Model.Contacts)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelCon => con.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelCon => con.PhoneNumber)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+    }
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

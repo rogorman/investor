@@ -131,6 +131,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvestorController.cs" />
+    <Compile Include="Dal\InvestiteeContext.cs" />
+    <Compile Include="Dal\InvestoteeInitialiser.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -138,10 +141,13 @@
     <Compile Include="Migrations\201207271348165_Initial.Designer.cs">
       <DependentUpon>201207271348165_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\201207311223409_Initial1.cs" />
+    <Compile Include="Migrations\201207311223409_Initial1.Designer.cs">
+      <DependentUpon>201207311223409_Initial1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Investor.cs" />
-    <Compile Include="Models\InvestorDb.cs" />
+    <Compile Include="Models\InvestorContact.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -239,6 +245,15 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Investor\Index.cshtml" />
+    <Content Include="Views\Investor\Details.cshtml" />
+    <Content Include="Views\Investor\Create.cshtml" />
+    <Content Include="Views\Investor\Edit.cshtml" />
+    <Content Include="Views\Investor\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -13,5 +13,10 @@ namespace Investitee.Models
 
         public string Description { get; set; }
 
+        public double? FundSize { get; set; }
+
+        public virtual ICollection<InvestorContact> Contacts { get; set; }
+
+
     }
 }

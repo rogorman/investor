@@ -5,17 +5,17 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Investitee.Dal;
 using Investitee.Models;
+using Investitee.Dal;
 
 namespace Investitee.Controllers
 {
-    public class HomeController : Controller
+    public class InvestorController : Controller
     {
         private InvestiteeContext db = new InvestiteeContext();
 
         //
-        // GET: /Home/
+        // GET: /Investor/
 
         public ActionResult Index()
         {
@@ -23,7 +23,7 @@ namespace Investitee.Controllers
         }
 
         //
-        // GET: /Home/Details/5
+        // GET: /Investor/Details/5
 
         public ActionResult Details(int id = 0)
         {
@@ -36,7 +36,7 @@ namespace Investitee.Controllers
         }
 
         //
-        // GET: /Home/Create
+        // GET: /Investor/Create
 
         public ActionResult Create()
         {
@@ -44,7 +44,7 @@ namespace Investitee.Controllers
         }
 
         //
-        // POST: /Home/Create
+        // POST: /Investor/Create
 
         [HttpPost]
         public ActionResult Create(Investor investor)
@@ -60,7 +60,7 @@ namespace Investitee.Controllers
         }
 
         //
-        // GET: /Home/Edit/5
+        // GET: /Investor/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
@@ -73,7 +73,7 @@ namespace Investitee.Controllers
         }
 
         //
-        // POST: /Home/Edit/5
+        // POST: /Investor/Edit/5
 
         [HttpPost]
         public ActionResult Edit(Investor investor)
@@ -88,7 +88,7 @@ namespace Investitee.Controllers
         }
 
         //
-        // GET: /Home/Delete/5
+        // GET: /Investor/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
@@ -101,7 +101,7 @@ namespace Investitee.Controllers
         }
 
         //
-        // POST: /Home/Delete/5
+        // POST: /Investor/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
