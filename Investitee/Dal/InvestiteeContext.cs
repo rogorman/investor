@@ -14,6 +14,12 @@ namespace Investitee.Dal
 
         public DbSet<InvestorContact> InvestorContacts { get; set; }
 
+        public DbSet<InvestmentConsultant> InvestmentConsultants { get; set; }
+
+        public DbSet<InvestmentManager> InvestmentManagers { get; set; }
+
+        public DbSet<Investment> Investments { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

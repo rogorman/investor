@@ -146,6 +146,9 @@
       <DependentUpon>201207311223409_Initial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Investment.cs" />
+    <Compile Include="Models\InvestmentConsultant.cs" />
+    <Compile Include="Models\InvestmentManager.cs" />
     <Compile Include="Models\Investor.cs" />
     <Compile Include="Models\InvestorContact.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

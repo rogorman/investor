@@ -19,7 +19,7 @@ namespace Investitee.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Investors.ToList());
+            return View();
         }
 
         //

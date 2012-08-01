@@ -17,6 +17,8 @@ namespace Investitee.Models
 
         public virtual ICollection<InvestorContact> Contacts { get; set; }
 
+        public virtual ICollection<InvestmentConsultant> Consultants { get; set; }
 
+        public virtual ICollection<InvestmentManager> InvestmentManagers { get; set; }
     }
 }

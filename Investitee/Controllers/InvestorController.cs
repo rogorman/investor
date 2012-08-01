@@ -10,13 +10,14 @@ using Investitee.Dal;
 
 namespace Investitee.Controllers
 {
+    [Authorize]
     public class InvestorController : Controller
     {
         private InvestiteeContext db = new InvestiteeContext();
 
         //
         // GET: /Investor/
-
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Investors.ToList());
