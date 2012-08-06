@@ -130,7 +130,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvestmentConsultantController.cs" />
+    <Compile Include="Controllers\InvestmentManagerController.cs" />
     <Compile Include="Controllers\InvestorController.cs" />
     <Compile Include="Dal\InvestiteeContext.cs" />
     <Compile Include="Dal\InvestoteeInitialiser.cs" />
@@ -257,6 +260,21 @@
     <Content Include="Views\Investor\Create.cshtml" />
     <Content Include="Views\Investor\Edit.cshtml" />
     <Content Include="Views\Investor\Delete.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\Details.cshtml" />
+    <Content Include="Views\Contact\Create.cshtml" />
+    <Content Include="Views\Contact\Edit.cshtml" />
+    <Content Include="Views\Contact\Delete.cshtml" />
+    <Content Include="Views\InvestmentManager\Index.cshtml" />
+    <Content Include="Views\InvestmentManager\Details.cshtml" />
+    <Content Include="Views\InvestmentManager\Create.cshtml" />
+    <Content Include="Views\InvestmentManager\Edit.cshtml" />
+    <Content Include="Views\InvestmentManager\Delete.cshtml" />
+    <Content Include="Views\InvestmentConsultant\Index.cshtml" />
+    <Content Include="Views\InvestmentConsultant\Details.cshtml" />
+    <Content Include="Views\InvestmentConsultant\Create.cshtml" />
+    <Content Include="Views\InvestmentConsultant\Edit.cshtml" />
+    <Content Include="Views\InvestmentConsultant\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

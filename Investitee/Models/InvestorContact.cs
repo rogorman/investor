@@ -13,5 +13,6 @@ namespace Investitee.Models
 
         public int? PhoneNumber { get; set; }
 
+        public virtual Investor Investor {get;set;}
     }
 }
