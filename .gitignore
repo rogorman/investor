@@ -14,4 +14,4 @@ xmldoc/XmlDoc
 **/App_Data/Log.txt
 **/*.orig
 UpgradeLog*.*
-_UpgradeReport_Files/
+_UpgradeReport_Files/**/App_Data/*.mdf**/App_Data/*.ldf

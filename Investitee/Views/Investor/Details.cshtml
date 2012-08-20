@@ -58,6 +58,31 @@
         </table>
     </div>
     }
+
+    @if (Model.Consultants.Count > 0)
+    {
+    <h4>Investment Consultant Details</h4>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var conSul in Model.Consultants)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelCon => conSul.Name)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+    }
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |

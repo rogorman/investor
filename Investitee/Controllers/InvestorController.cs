@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -7,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Investitee.Models;
 using Investitee.Dal;
+using Investitee.ViewModels;
 
 namespace Investitee.Controllers
 {
@@ -18,9 +20,47 @@ namespace Investitee.Controllers
         //
         // GET: /Investor/
         [Authorize]
-        public ActionResult Index()
+        public ViewResult Index(string sortOrder, string searchString, string currentFilter, int? page)
         {
-            return View(db.Investors.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name" : sortOrder;
+
+            if (Request.HttpMethod == "GET")
+            {
+                searchString = currentFilter;
+            }
+            else
+            {
+                page = 1;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+            var investors = from s in db.Investors
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                investors = investors.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper())
+                                       || s.Description.ToUpper().Contains(searchString.ToUpper()));
+            }
+
+            switch (sortOrder)
+            {
+                case "Name":
+                    investors = investors.OrderByDescending(s => s.Name);
+                    break;
+                case "Description":
+                    investors = investors.OrderBy(s => s.Description);
+                    break;
+                case "Fund Size":
+                    investors = investors.OrderByDescending(s => s.FundSize);
+                    break;
+                default:
+                    investors = investors.OrderBy(s => s.Name);
+                    break;
+            }
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(investors.ToPagedList(pageNumber, pageSize));
         }
 
         //
@@ -50,13 +90,19 @@ namespace Investitee.Controllers
         [HttpPost]
         public ActionResult Create(Investor investor)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Investors.Add(investor);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Investors.Add(investor);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
+            catch (DataException)
+            {
+                ModelState.AddModelError("", "Unable to save entity");
+            }
             return View(investor);
         }
 
@@ -112,6 +158,14 @@ namespace Investitee.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Stats()
+        {
+            var count = db.Investors.Count();
+
+            return View(new InvestorStats() { NumberOfInvestors = count });
+        }
+
 
         protected override void Dispose(bool disposing)
         {
